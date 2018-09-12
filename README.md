@@ -10,10 +10,14 @@
     python server.py
     python client.py
   
-# mnist_tf
+# mnist_tf_network
     python -m grpc_tools.protoc -I ./ –-python_out=./ –-grpc_python_out=./ ./mnist.proto
     python server.py
     python client.py
-
+# mnist_tf_interface
+    python -m grpc_tools.protoc -I ./ –-python_out=./ –-grpc_python_out=./ ./mnist.proto
+    python server.py
+    python client.py
 # reference
 [https://github.com/tensorflow/serving/blob/master/tensorflow_serving/apis/predict.proto](https://github.com/tensorflow/serving/blob/master/tensorflow_serving/apis/predict.proto)
+[https://grpc.io/docs/quickstart/python.html](https://grpc.io/docs/quickstart/python.html)
