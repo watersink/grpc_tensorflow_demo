@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mnist;
+
+
+
+message MnistPredictRequest {
+  bytes inputs = 1;
+}
+
+message MnistPredictResponse {
+  string outputs = 1;
+  float probability=2;
+}
+
+service MnistPredictionService {
+  rpc MnistPredict(MnistPredictRequest) returns (MnistPredictResponse){};
+}
