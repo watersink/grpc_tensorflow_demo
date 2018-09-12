@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package tensorflow.serving;
+option cc_enable_arenas = true;
+
+import "tensorflow/core/framework/tensor.proto";
+
+message MnistPredictRequest {
+  map<string, TensorProto> inputs = 1;
+}
+
+message MnistPredictResponse {
+  map<string, TensorProto> outputs = 1;
+}
+
+service MnistPredictionService {
+  rpc MnistPredict(MnistPredictRequest) returns (MnistPredictResponse){};
+}
