@@ -21,8 +21,8 @@ _PORT = '8088'
 
 class MnistPredictionServiceSubclass(mnist_pb2_grpc.MnistPredictionServiceServicer):
     def __init__(self):
-        self.checkpoint_file = "./save/"
-        self.graph_file = "./save/mnist.ckpt.meta"
+        self.checkpoint_file = "../train_test_mnist/save/"
+        self.graph_file = "../train_test_mnist/save/mnist.ckpt.meta"
 
         self.graph = tf.Graph()
         with self.graph.as_default():

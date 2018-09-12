@@ -23,7 +23,7 @@ def main():
     # Make request data
     request = mnist_pb2.MnistPredictRequest()
 
-    image = cv2.imread("./MNIST/testimage/5/1.jpg")
+    image = cv2.imread("../train_test_mnist/MNIST/testimage/5/1.jpg")
     array = np.array(image)/(255*1.0)-0.5
     samples_features =  array.reshape([-1,28,28,3])
 
