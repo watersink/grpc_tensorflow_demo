@@ -33,7 +33,7 @@ web api demos using tensorflow,include grpc,flask,webpy,tornodo,tf serving
     python3 client.py
     sh curl.sh
 
-# webpy
+# mnist_webpy
     python server.py
     python3 client.py
     sh curl.sh
