@@ -1,0 +1,1 @@
+curl -X POST -F image=@../train_test_mnist/MNIST/testimage/5/1.jpg 'http://localhost:5000/predict'
