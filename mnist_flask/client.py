@@ -3,8 +3,6 @@ import flask
 
 class MNIST_CLIENT(object):
     def __init__(self):
-        self.headers = {}
-        self.headers['Content-Type'] = 'application/x-www-form-urlencoded'
         self.urls = 'http://127.0.0.1'
         self.port = '5000'
         self.route = 'predict'
