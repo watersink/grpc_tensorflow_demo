@@ -1,5 +1,5 @@
 # web api Demo
-web api demos using tensorflow,include grpc,flask,webpy,tornodo,tf serving
+web api demos using tensorflow,include grpc,flask,webpy,tornado,tf serving
 
 # install
     #grpc
