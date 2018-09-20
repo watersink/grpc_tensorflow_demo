@@ -17,6 +17,9 @@ web api demos using tensorflow,include grpc,flask,webpy,tornado,tf serving
     
     #tornado
     pip3 install tornado
+
+    #rabbitMQ
+    pip3 install pika
 # helloworld
     python3 -m grpc_tools.protoc -I ./ –-python_out=./ –-grpc_python_out=./ ./helloworld.proto
     python3 server.py
@@ -32,16 +35,21 @@ web api demos using tensorflow,include grpc,flask,webpy,tornado,tf serving
     python3 client.py
 
 # mnist_flask
-    python server.py
+    python3 server.py
     python3 client.py
     sh curl.sh
 
 # mnist_webpy
-    python server.py
+    python3 server.py
     python3 client.py
     sh curl.sh
+
 # mnits_tornado
-    python server.py
+    python3 server.py
+    python3 client.py
+
+# mnist_rabbitMQ
+    python3 server.py
     python3 client.py
 # reference
 [https://github.com/tensorflow/serving/blob/master/tensorflow_serving/apis/predict.proto](https://github.com/tensorflow/serving/blob/master/tensorflow_serving/apis/predict.proto)
