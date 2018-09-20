@@ -14,6 +14,9 @@ web api demos using tensorflow,include grpc,flask,webpy,tornodo,tf serving
     git clone https://github.com/webpy/webpy.git
     python3 setup.py install
     pip3 install requests
+    
+    #tornado
+    pip3 install tornado
 # helloworld
     python3 -m grpc_tools.protoc -I ./ –-python_out=./ –-grpc_python_out=./ ./helloworld.proto
     python3 server.py
@@ -37,6 +40,9 @@ web api demos using tensorflow,include grpc,flask,webpy,tornodo,tf serving
     python server.py
     python3 client.py
     sh curl.sh
+# mnits_tornado
+    python server.py
+    python3 client.py
 # reference
 [https://github.com/tensorflow/serving/blob/master/tensorflow_serving/apis/predict.proto](https://github.com/tensorflow/serving/blob/master/tensorflow_serving/apis/predict.proto)
 [https://grpc.io/docs/quickstart/python.html](https://grpc.io/docs/quickstart/python.html)
