@@ -1,5 +1,5 @@
 # web api Demo
-web api demos using tensorflow,include grpc,flask,webpy,tornado,tf serving
+web api demos using tensorflow,include grpc,flask,webpy,tornado,django,tf serving
 
 # install
     #grpc
@@ -20,6 +20,9 @@ web api demos using tensorflow,include grpc,flask,webpy,tornado,tf serving
 
     #rabbitMQ
     pip3 install pika
+
+    #Django
+    pip3 install django
 # helloworld
     python3 -m grpc_tools.protoc -I ./ –-python_out=./ –-grpc_python_out=./ ./helloworld.proto
     python3 server.py
@@ -50,6 +53,11 @@ web api demos using tensorflow,include grpc,flask,webpy,tornado,tf serving
 
 # mnist_rabbitMQ
     python3 server.py
+    python3 client.py
+
+# mnist_Django
+    django-admin startproject mnist_Django
+    python3 manage.py runserver
     python3 client.py
 # reference
 [https://github.com/tensorflow/serving/blob/master/tensorflow_serving/apis/predict.proto](https://github.com/tensorflow/serving/blob/master/tensorflow_serving/apis/predict.proto)
