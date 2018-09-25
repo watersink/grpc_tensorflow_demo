@@ -26,7 +26,7 @@ web api demos using tensorflow,include grpc,flask,webpy,tornado,rabbitMQ,django,
 
     #tf serving
     echo "deb [arch=amd64] http://storage.googleapis.com/tensorflow-serving-apt stable tensorflow-model-server tensorflow-model-server-universal" | sudo tee /etc/apt/sources.list.d/tensorflow-serving.list && \
-curl https://storage.googleapis.com/tensorflow-serving-apt/tensorflow-serving.release.pub.gpg | sudo apt-key add -
+    curl https://storage.googleapis.com/tensorflow-serving-apt/tensorflow-serving.release.pub.gpg | sudo apt-key add -
     sudo apt-get update && sudo apt-get install tensorflow-model-server
     sudo apt-get upgrade tensorflow-model-serve
     pip3 install tensorflow-serving-api
@@ -75,6 +75,9 @@ curl https://storage.googleapis.com/tensorflow-serving-apt/tensorflow-serving.re
 
 # reference
 [https://github.com/tensorflow/serving/blob/master/tensorflow_serving/apis/predict.proto](https://github.com/tensorflow/serving/blob/master/tensorflow_serving/apis/predict.proto)
+> 
 [https://grpc.io/docs/quickstart/python.html](https://grpc.io/docs/quickstart/python.html)
+> 
 [https://blog.keras.io/](https://blog.keras.io/)
+> 
 [https://www.tensorflow.org/serving/setup](https://www.tensorflow.org/serving/setup)
