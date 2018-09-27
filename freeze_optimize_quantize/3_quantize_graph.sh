@@ -1,0 +1,1 @@
+../../bazel-bin/tensorflow/tools/quantization/quantize_graph --input=./optimize_graph.pb --output_node_names=prediction,probability --print_nodes --output=./quantize_graph.pb --mode=eightbit --logtostderr

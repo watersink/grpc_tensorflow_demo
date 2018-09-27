@@ -31,6 +31,11 @@ web api demos using tensorflow,include grpc,flask,webpy,tornado,rabbitMQ,django,
     sudo apt-get upgrade tensorflow-model-serve
     pip3 install tensorflow-serving-api
 
+   #freeze_optimize_quantize
+   need source code compilation of tensorflow
+   bazel build tensorflow/python/tools:freeze_graph
+   bazel build tensorflow/python/tools:optimize_for_inference
+   bazel build tensorflow/tools/quantization:quantize_graph
 # helloworld
     python3 -m grpc_tools.protoc -I ./ –-python_out=./ –-grpc_python_out=./ ./helloworld.proto
     python3 server.py
@@ -72,6 +77,13 @@ web api demos using tensorflow,include grpc,flask,webpy,tornado,rabbitMQ,django,
     python3 export_mnist.py
     tensorflow_model_server --port=8500 --model_name=mnist --model_base_path=/opt/grpc_tensorflow_demo/mnist_tfServing/mnist
     python3 client.py
+
+# freeze_optimize_quantize
+    python3 0_graph_io.py
+    bash 1_frozen_graph.sh
+    bash 2_optimize_graph.sh
+    bash 3_quantize_graph.sh
+    python3 test_mnist_pb.py
 
 # reference
 [https://github.com/tensorflow/serving/blob/master/tensorflow_serving/apis/predict.proto](https://github.com/tensorflow/serving/blob/master/tensorflow_serving/apis/predict.proto)

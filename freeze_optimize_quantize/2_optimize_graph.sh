@@ -1,0 +1,1 @@
+../../bazel-bin/tensorflow/python/tools/optimize_for_inference --input=./frozen_graph.pb --output=optimize_graph.pb --frozen_graph=True --input_names=input --output_names=prediction,probability --placeholder_type_enum=1
