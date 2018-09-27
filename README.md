@@ -31,11 +31,11 @@ web api demos using tensorflow,include grpc,flask,webpy,tornado,rabbitMQ,django,
     sudo apt-get upgrade tensorflow-model-serve
     pip3 install tensorflow-serving-api
 
-   #freeze_optimize_quantize
-   need source code compilation of tensorflow
-   bazel build tensorflow/python/tools:freeze_graph
-   bazel build tensorflow/python/tools:optimize_for_inference
-   bazel build tensorflow/tools/quantization:quantize_graph
+    #freeze_optimize_quantize
+    need source code compilation of tensorflow
+    bazel build tensorflow/python/tools:freeze_graph
+    bazel build tensorflow/python/tools:optimize_for_inference
+    bazel build tensorflow/tools/quantization:quantize_graph
 # helloworld
     python3 -m grpc_tools.protoc -I ./ –-python_out=./ –-grpc_python_out=./ ./helloworld.proto
     python3 server.py
