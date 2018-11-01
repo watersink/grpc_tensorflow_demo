@@ -5,7 +5,7 @@ from PIL import Image
 
 sys.path.append("../train_test_mnist/")
 from test_mnist import MNIST
-
+import hashlib
 
 mnist=MNIST()
 
@@ -18,16 +18,20 @@ def predict():
 
     # ensure an image was properly uploaded to our endpoint
     if flask.request.method == "POST":
+        md5=flask.request.form['md5']
         if flask.request.files.get("image"):
             # read the image in PIL format
-            image = flask.request.files["image"].read()
-            image = Image.open(io.BytesIO(image))
+            file_bytes = flask.request.files["image"].read()
+            cal_md5sum = hashlib.md5(file_bytes).hexdigest()
+            image = Image.open(io.BytesIO(file_bytes))
+
 
             # classify the input image and then initialize the list
             # of predictions to return to the client
-            predict_result,predict_probability = mnist.interface(image)
-            data["predict_result"] = str(predict_result[0])
-            data["predict_probability"] = str(predict_probability)
+            if md5==cal_md5sum:
+                predict_result,predict_probability = mnist.interface(image)
+                data["predict_result"] = str(predict_result[0])
+                data["predict_probability"] = str(predict_probability)
 
             # indicate that the request was a success
             data["success"] = True
