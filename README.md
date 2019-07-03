@@ -102,6 +102,7 @@ tested on tensorflow1.13,should build tensorflow from source [offical install](h
     Lenet init OK.
     1
     0.999875
+    lenet Session Release...
 
 
 
