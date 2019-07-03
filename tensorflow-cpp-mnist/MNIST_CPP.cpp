@@ -42,7 +42,7 @@ MNIST_CPP::MNIST_CPP(string modelpath){
 
 
 MNIST_CPP::~MNIST_CPP(){
-	if (nullptr != this->lenetSession) {
+    if (nullptr != this->lenetSession) {
         tensorflow::Status status = this->lenetSession->Close();
         if (!status.ok())
             TF_CHECK_OK(status);
