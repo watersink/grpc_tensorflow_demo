@@ -85,6 +85,27 @@ web api demos using tensorflow,include grpc,flask,webpy,tornado,rabbitMQ,django,
     bash 3_quantize_graph.sh
     python3 test_mnist_pb.py
 
+# tensorflow-cpp-mnist
+tested on tensorflow1.13,should build tensorflow from source [offical install](https://tensorflow.google.cn/install/source)
+
+    bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package
+    ./bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
+    bazel build //tensorflow:libtensorflow_cc.so 
+
+
+    cd cmake-build-debug
+    cmake ..
+    make
+    ./main
+the results:
+Lenet init OK.
+1
+0.999875
+
+
+
+
+
 # reference
 [https://github.com/tensorflow/serving/blob/master/tensorflow_serving/apis/predict.proto](https://github.com/tensorflow/serving/blob/master/tensorflow_serving/apis/predict.proto)
 > 
