@@ -93,14 +93,15 @@ tested on tensorflow1.13,should build tensorflow from source [offical install](h
     bazel build //tensorflow:libtensorflow_cc.so 
 
 
-    cd cmake-build-debug
+    cd tensorflow-cpp-mnist/cmake-build-debug
     cmake ..
     make
     ./main
-the results:
-Lenet init OK.
-1
-0.999875
+    
+    the results:
+    Lenet init OK.
+    1
+    0.999875
 
 
 
