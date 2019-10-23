@@ -105,6 +105,19 @@ tested on tensorflow1.13,should build tensorflow from source [offical install](h
     lenet Session Release...
 
 
+# mnist_mnn
+	python3 ckpt2pb.py
+	/data/MNN/tools/converter/build/MNNConvert -f TF --modelFile mnist.pb --MNNModel mnn/mnist.mnn --bizCode MNN
+	/data/MNN/tools/converter/build/MNNDump2Json.out mnn/mnist.mnn mnist.json
+	/data/MNN/build/MNNV2Basic.out mnn/mnist.mnn 1 1
+	/data/MNN_bak/build/benchmark.out mnn 100 0
+	mkdir build&&cd build&&cmake ..&&make
+	./mnist
+
+
+    the results:
+	4.74518e-07 4.74518e-07 4.74518e-07 4.74518e-07 0.999128 4.74518e-07 4.74518e-07 0.000137537 4.28663e-05 0.000688581
+
 
 
 
