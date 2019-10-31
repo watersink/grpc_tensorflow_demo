@@ -1,0 +1,21 @@
+7767517
+19 19
+MemoryData       dense_1/bias/read                0 1 dense_1/bias/read 0=10 1=0 2=0
+MemoryData       dense/bias/read                  0 1 dense/bias/read 0=500 1=0 2=0
+MemoryData       conv2d_1/bias/read               0 1 conv2d_1/bias/read 0=128 1=0 2=0
+MemoryData       conv2d/bias/read                 0 1 conv2d/bias/read 0=64 1=0 2=0
+Input            input                            0 1 input 0=0 1=0 2=0
+Convolution      conv2d/Conv2D                    1 1 input conv2d/Conv2D 0=64 1=3 11=3 2=1 12=1 3=1 13=1 4=-233 5=0 6=1728
+BinaryOp         conv2d/BiasAdd                   2 1 conv2d/Conv2D conv2d/bias/read conv2d/BiasAdd 0=0
+Pooling          max_pooling2d/MaxPool            1 1 conv2d/BiasAdd max_pooling2d/MaxPool 0=0 1=2 11=2 2=2 12=2 3=0 4=0 5=1
+Convolution      conv2d_2/Conv2D                  1 1 max_pooling2d/MaxPool conv2d_2/Conv2D 0=128 1=3 11=3 2=1 12=1 3=1 13=1 4=-233 5=0 6=73728
+BinaryOp         conv2d_2/BiasAdd                 2 1 conv2d_2/Conv2D conv2d_1/bias/read conv2d_2/BiasAdd 0=0
+Pooling          max_pooling2d_2/MaxPool          1 1 conv2d_2/BiasAdd max_pooling2d_2/MaxPool 0=0 1=2 11=2 2=2 12=2 3=0 4=0 5=1
+Reshape          Reshape                          1 1 max_pooling2d_2/MaxPool Reshape 0=6272 1=-233 2=-233 3=1
+InnerProduct     dense/MatMul                     1 1 Reshape dense/MatMul 0=500 1=0 2=3136000
+BinaryOp         dense/BiasAdd                    2 1 dense/MatMul dense/bias/read dense/BiasAdd 0=0
+ReLU             dense/Relu                       1 1 dense/BiasAdd dense/Relu 0=0.000000
+InnerProduct     dense_2/MatMul                   1 1 dense/Relu dense_2/MatMul 0=10 1=0 2=5000
+BinaryOp         dense_2/BiasAdd                  2 1 dense_2/MatMul dense_1/bias/read dense_2/BiasAdd 0=0
+ReLU             dense_2/Relu                     1 1 dense_2/BiasAdd dense_2/Relu 0=0.000000
+Softmax          output                           1 1 dense_2/Relu output

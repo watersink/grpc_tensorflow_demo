@@ -1,5 +1,5 @@
 # web api Demo
-web api demos using tensorflow,include grpc,flask,webpy,tornado,rabbitMQ,django,tf serving
+web api demos using tensorflow,include grpc,flask,webpy,tornado,rabbitMQ,django,tf serving,tf cpp, ncnn ,mnn
 
 # install
     #grpc
@@ -118,6 +118,16 @@ tested on tensorflow1.13,should build tensorflow from source [offical install](h
     the results:
 	4.74518e-07 4.74518e-07 4.74518e-07 4.74518e-07 0.999128 4.74518e-07 4.74518e-07 0.000137537 4.28663e-05 0.000688581
 
+
+# mnist_ncnn
+    python3 ckpt2pb.py
+    tensorflow2ncnn ./mnist.pb ./ncnn/mnist.param ./ncnn/mnist.bin
+    mkdir build&&cd build&&cmake ..&&make
+    ./mnist
+
+
+    the results:
+	1.23689e-06 0.999917 5.75001e-06 1.23689e-06 2.05196e-05 1.23689e-06 3.1576e-05 1.23689e-06 1.88986e-05 1.23689e-06 
 
 
 
