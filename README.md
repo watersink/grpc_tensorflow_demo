@@ -131,6 +131,12 @@ tested on tensorflow1.13,should build tensorflow from source [offical install](h
 
 
 # mnist_openvino
+    cd /opt/intel/openvino/bin
+    source setupvars.sh
+
+    cd /opt/intel/openvino/deployment_tools/inference_engine/samples/
+    bash build_samples.sh
+
     python3 python/ckpt2pb.py
     python3 /opt/intel/openvino/deployment_tools/model_optimizer/mo_tf.py --input_model mnist.pb -b 1
     #python
