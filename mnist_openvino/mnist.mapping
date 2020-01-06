@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<mapping>
+	<map>
+		<framework name="input" out_port_id="0"/>
+		<IR id="0" name="input" out_port_id="0"/>
+	</map>
+	<map>
+		<framework name="conv2d/BiasAdd" out_port_id="0"/>
+		<IR id="1" name="conv2d/Conv2D" out_port_id="3"/>
+	</map>
+	<map>
+		<framework name="max_pooling2d/MaxPool" out_port_id="0"/>
+		<IR id="2" name="max_pooling2d/MaxPool" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="conv2d_2/BiasAdd" out_port_id="0"/>
+		<IR id="3" name="conv2d_2/Conv2D" out_port_id="3"/>
+	</map>
+	<map>
+		<framework name="max_pooling2d_2/MaxPool" out_port_id="0"/>
+		<IR id="4" name="max_pooling2d_2/MaxPool" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="Reshape/shape" out_port_id="0"/>
+		<IR id="5" name="Reshape/shape/Output_0/Data__const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="Reshape" out_port_id="0"/>
+		<IR id="6" name="Reshape" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="dense/BiasAdd" out_port_id="0"/>
+		<IR id="7" name="dense/MatMul" out_port_id="3"/>
+	</map>
+	<map>
+		<framework name="dense/Relu" out_port_id="0"/>
+		<IR id="8" name="dense/Relu" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="dense_2/BiasAdd" out_port_id="0"/>
+		<IR id="9" name="dense_2/MatMul" out_port_id="3"/>
+	</map>
+	<map>
+		<framework name="dense_2/Relu" out_port_id="0"/>
+		<IR id="10" name="dense_2/Relu" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="output" out_port_id="0"/>
+		<IR id="11" name="output" out_port_id="1"/>
+	</map>
+</mapping>

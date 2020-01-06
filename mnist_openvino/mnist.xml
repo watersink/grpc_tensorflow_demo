@@ -1,0 +1,250 @@
+<?xml version="1.0" ?>
+<net batch="1" name="mnist" version="5">
+	<layers>
+		<layer id="0" name="input" precision="FP32" type="Input">
+			<output>
+				<port id="0">
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>28</dim>
+					<dim>28</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="1" name="conv2d/Conv2D" precision="FP32" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="3,3" output="64" pads_begin="1,1" pads_end="1,1" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>28</dim>
+					<dim>28</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>28</dim>
+					<dim>28</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="0" size="6912"/>
+				<biases offset="6912" size="256"/>
+			</blobs>
+		</layer>
+		<layer id="2" name="max_pooling2d/MaxPool" precision="FP32" type="Pooling">
+			<data auto_pad="valid" exclude-pad="true" kernel="2,2" pads_begin="0,0" pads_end="0,0" pool-method="max" strides="2,2"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>28</dim>
+					<dim>28</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>14</dim>
+					<dim>14</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="3" name="conv2d_2/Conv2D" precision="FP32" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="3,3" output="128" pads_begin="1,1" pads_end="1,1" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>14</dim>
+					<dim>14</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>128</dim>
+					<dim>14</dim>
+					<dim>14</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="7168" size="294912"/>
+				<biases offset="302080" size="512"/>
+			</blobs>
+		</layer>
+		<layer id="4" name="max_pooling2d_2/MaxPool" precision="FP32" type="Pooling">
+			<data auto_pad="valid" exclude-pad="true" kernel="2,2" pads_begin="0,0" pads_end="0,0" pool-method="max" strides="2,2"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>128</dim>
+					<dim>14</dim>
+					<dim>14</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>128</dim>
+					<dim>7</dim>
+					<dim>7</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="5" name="Reshape/shape/Output_0/Data__const" precision="FP32" type="Const">
+			<output>
+				<port id="1">
+					<dim>2</dim>
+				</port>
+			</output>
+			<blobs>
+				<custom offset="302592" size="8"/>
+			</blobs>
+		</layer>
+		<layer id="6" name="Reshape" precision="FP32" type="Reshape">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>128</dim>
+					<dim>7</dim>
+					<dim>7</dim>
+				</port>
+				<port id="1">
+					<dim>2</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2">
+					<dim>1</dim>
+					<dim>6272</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="7" name="dense/MatMul" precision="FP32" type="FullyConnected">
+			<data out-size="500"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>6272</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>500</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="302600" size="12544000"/>
+				<biases offset="12846600" size="2000"/>
+			</blobs>
+		</layer>
+		<layer id="8" name="dense/Relu" precision="FP32" type="ReLU">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>500</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>500</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="9" name="dense_2/MatMul" precision="FP32" type="FullyConnected">
+			<data out-size="10"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>500</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>10</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="12848600" size="20000"/>
+				<biases offset="12868600" size="40"/>
+			</blobs>
+		</layer>
+		<layer id="10" name="dense_2/Relu" precision="FP32" type="ReLU">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>10</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>10</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="11" name="output" precision="FP32" type="SoftMax">
+			<data axis="1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>10</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>10</dim>
+				</port>
+			</output>
+		</layer>
+	</layers>
+	<edges>
+		<edge from-layer="0" from-port="0" to-layer="1" to-port="0"/>
+		<edge from-layer="1" from-port="3" to-layer="2" to-port="0"/>
+		<edge from-layer="2" from-port="1" to-layer="3" to-port="0"/>
+		<edge from-layer="3" from-port="3" to-layer="4" to-port="0"/>
+		<edge from-layer="4" from-port="1" to-layer="6" to-port="0"/>
+		<edge from-layer="5" from-port="1" to-layer="6" to-port="1"/>
+		<edge from-layer="6" from-port="2" to-layer="7" to-port="0"/>
+		<edge from-layer="7" from-port="3" to-layer="8" to-port="0"/>
+		<edge from-layer="8" from-port="1" to-layer="9" to-port="0"/>
+		<edge from-layer="9" from-port="3" to-layer="10" to-port="0"/>
+		<edge from-layer="10" from-port="1" to-layer="11" to-port="0"/>
+	</edges>
+	<meta_data>
+		<MO_version value="2019.1.0-341-gc9b66a2"/>
+		<cli_parameters>
+			<batch value="1"/>
+			<data_type value="float"/>
+			<disable_fusing value="False"/>
+			<disable_gfusing value="False"/>
+			<disable_nhwc_to_nchw value="False"/>
+			<disable_resnet_optimization value="False"/>
+			<enable_concat_optimization value="False"/>
+			<extensions value="DIR"/>
+			<framework value="tf"/>
+			<generate_deprecated_IR_V2 value="False"/>
+			<input_model value="DIR/mnist.pb"/>
+			<input_model_is_text value="False"/>
+			<keep_shape_ops value="False"/>
+			<log_level value="ERROR"/>
+			<mean_scale_values value="{}"/>
+			<mean_values value="()"/>
+			<move_to_preprocess value="False"/>
+			<output_dir value="DIR"/>
+			<reverse_input_channels value="False"/>
+			<scale_values value="()"/>
+			<silent value="False"/>
+			<version value="False"/>
+			<unset unset_cli_parameters="finegrain_fusing, freeze_placeholder_with_value, input, input_checkpoint, input_meta_graph, input_shape, model_name, output, placeholder_shapes, saved_model_dir, saved_model_tags, scale, tensorboard_logdir, tensorflow_custom_layer_libraries, tensorflow_custom_operations_config_update, tensorflow_object_detection_api_pipeline_config, tensorflow_operation_patterns, tensorflow_subgraph_patterns, tensorflow_use_custom_operations_config"/>
+		</cli_parameters>
+	</meta_data>
+</net>
