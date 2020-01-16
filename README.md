@@ -1,5 +1,5 @@
 # web api Demo
-web api demos using tensorflow,include grpc,flask,webpy,tornado,rabbitMQ,django,tf serving,tf cpp, ncnn ,mnn, openvino
+web api demos using tensorflow,include grpc,flask,webpy,tornado,rabbitMQ,django,tf serving,tf cpp, ncnn ,mnn, openvino, movidius_ncs
 
 # install
     #grpc
@@ -185,6 +185,42 @@ tested on tensorflow1.13,should build tensorflow from source [offical install](h
     out_output                    NOT_RUN        layerType: Output             realTime: 0          cpu: 0              execType: unknown_FP32  
 
 
+# mnist_movidius_ncs
+    bash convert_model.sh
+
+    #python
+    python3 hello_ncs.py
+    python3 mnist_ncs.py
+
+    #cpp
+    bash build.sh
+    ./mnist_ncs
+    #or
+    mkdir build&&cd build&&cmake ..&&make
+    cp mnist ../
+    cd ../&&mnist
+
+    the results:
+    Hello NCS! Device opened normally.
+    Goodbye NCS! Device closed normally.
+    NCS device working.
+    
+    Number of categories: 10
+    Start download to NCS...
+    *******************************************************************************
+    mnist on NCS
+    *******************************************************************************
+    4 4 0.99902
+    9 9 0.00069046
+    7 7 0.00013757
+    8 8 0.0
+    6 6 0.0
+    5 5 0.0
+    3 3 0.0
+    2 2 0.0
+    1 1 0.0
+    0 0 0.0
+    *******************************************************************************
 
 
 # reference
