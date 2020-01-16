@@ -233,3 +233,7 @@ tested on tensorflow1.13,should build tensorflow from source [offical install](h
 [https://www.tensorflow.org/serving/setup](https://www.tensorflow.org/serving/setup)
 > 
 [https://software.intel.com/en-us/openvino-toolkit/choose-download/free-download-linux](https://software.intel.com/en-us/openvino-toolkit/choose-download/free-download-linux)
+> 
+[https://github.com/movidius/ncsdk](https://github.com/movidius/ncsdk)
+> 
+[https://github.com/movidius/ncappzoo](https://github.com/movidius/ncappzoo)
