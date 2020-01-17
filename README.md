@@ -1,5 +1,5 @@
 # web api Demo
-web api demos using tensorflow,include grpc,flask,webpy,tornado,rabbitMQ,django,tf serving,tf cpp, ncnn ,mnn, openvino, movidius_ncs
+web api demos using tensorflow,include grpc,flask,webpy,tornado,rabbitMQ,django,tf serving,tf cpp, ncnn ,mnn, openvino, movidius_ncs, libtorch
 
 # install
     #grpc
@@ -223,6 +223,26 @@ tested on tensorflow1.13,should build tensorflow from source [offical install](h
     *******************************************************************************
 
 
+# mnist_libtorch
+    #python
+    python3 mnist_train_test.py.py
+
+    #cpp
+    cd cpp
+    export Torch_DIR=/data/libtorch
+    mkdir build&&cd build&&cmake ..&&make
+    ./mnist
+
+    the results:
+    ok
+    prediction: 4
+    [ CPULongType{1} ]
+    top10:  4  9  7  8  5  3  6  1  2  0
+    [ CPULongType{1,10} ]
+    4 9 7 8 5 3 6 1 2 0 
+
+
+
 # reference
 [https://github.com/tensorflow/serving/blob/master/tensorflow_serving/apis/predict.proto](https://github.com/tensorflow/serving/blob/master/tensorflow_serving/apis/predict.proto)
 > 
@@ -237,3 +257,5 @@ tested on tensorflow1.13,should build tensorflow from source [offical install](h
 [https://github.com/movidius/ncsdk](https://github.com/movidius/ncsdk)
 > 
 [https://github.com/movidius/ncappzoo](https://github.com/movidius/ncappzoo)
+> 
+[https://pytorch.org/tutorials/advanced/cpp_frontend.html](https://pytorch.org/tutorials/advanced/cpp_frontend.html)
