@@ -1,5 +1,5 @@
 # web api Demo
-web api demos using tensorflow,include grpc,flask,webpy,tornado,rabbitMQ,django,tf serving,tf cpp, ncnn ,mnn, openvino, movidius_ncs, libtorch
+web api demos using tensorflow,include grpc,flask,webpy,tornado,rabbitMQ,django,tf serving,tf cpp, tflite, ncnn ,mnn, openvino, movidius_ncs, libtorch
 
 # install
     #grpc
@@ -103,6 +103,21 @@ tested on tensorflow1.13,should build tensorflow from source [offical install](h
     1
     0.999875
     lenet Session Release...
+
+
+# tflite
+    bash to_tflite.sh
+    #python
+    python3 mnist_tflite.py
+    the results:
+    [{'name': 'input', 'index': 12, 'shape': array([ 1, 28, 28,  3], dtype=int32), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}]
+    [{'name': 'output', 'index': 15, 'shape': array([ 1, 10], dtype=int32), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}]
+    results:[4.7451897e-07 4.7451897e-07 4.7451897e-07 4.7451897e-07 9.9912816e-01
+    4.7451897e-07 4.7451897e-07 1.3754805e-04 4.2866563e-05 6.8858487e-04]
+    top_k:[4 9 7 8 6 5 3 2 1 0]
+
+    #cpp
+    not compiled
 
 
 # mnist_mnn
@@ -259,3 +274,5 @@ tested on tensorflow1.13,should build tensorflow from source [offical install](h
 [https://github.com/movidius/ncappzoo](https://github.com/movidius/ncappzoo)
 > 
 [https://pytorch.org/tutorials/advanced/cpp_frontend.html](https://pytorch.org/tutorials/advanced/cpp_frontend.html)
+> 
+[https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/examples/label_image](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/examples/label_image)

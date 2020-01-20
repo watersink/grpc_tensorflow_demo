@@ -1,0 +1,2 @@
+#/data/tensorflow/bazel-bin/tensorflow/lite/toco/toco --input_file=./mnist.pb --input_format=TENSORFLOW_GRAPHDEF --output_file=mnist_quantized.tflite --inference_type=QUANTIZED_UINT8 --input_shapes=1,28,28,3 --input_arrays=input --output_arrays=output --mean_values=128 --std_dev_values=255 --default_ranges_min=0 --default_ranges_max=6 --allow_custom_ops
+toco --graph_def_file=./mnist.pb --input_format=TENSORFLOW_GRAPHDEF --output_file=mnist.tflite --inference_type=FLOAT --input_type=FLOAT --input_arrays=input --input_shapes=1,28,28,3 --output_arrays=output
