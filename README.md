@@ -9,6 +9,7 @@ web api demos using tensorflow,include grpc,flask,webpy,tornado,rabbitMQ,django,
     
     #flask
     pip3 install flask
+    pip3 install gunicorn
     
     #webpy
     git clone https://github.com/webpy/webpy.git
