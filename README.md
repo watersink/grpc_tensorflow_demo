@@ -1,5 +1,5 @@
 # web api Demo
-web api demos using tensorflow,include grpc,flask,webpy,tornado,rabbitMQ,django,tf serving,tf cpp, tflite, ncnn ,mnn, openvino, movidius_ncs, libtorch
+web api demos using tensorflow,include grpc,flask,webpy,tornado,rabbitMQ,django,tf serving,tf cpp, tflite, ncnn ,mnn, openvino, movidius_ncs, libtorch , onnxruntime
 
 # install
     #grpc
@@ -37,6 +37,15 @@ web api demos using tensorflow,include grpc,flask,webpy,tornado,rabbitMQ,django,
     bazel build tensorflow/python/tools:freeze_graph
     bazel build tensorflow/python/tools:optimize_for_inference
     bazel build tensorflow/tools/quantization:quantize_graph
+
+
+    #onnxruntime
+    #cpu
+    pip3 install onnxruntime
+    #gpu
+    pip3 install onnxruntime-gpu
+    
+
 # helloworld
     python3 -m grpc_tools.protoc -I ./ –-python_out=./ –-grpc_python_out=./ ./helloworld.proto
     python3 server.py
@@ -256,6 +265,17 @@ tested on tensorflow1.13,should build tensorflow from source [offical install](h
     top10:  4  9  7  8  5  3  6  1  2  0
     [ CPULongType{1,10} ]
     4 9 7 8 5 3 6 1 2 0 
+
+
+# onnxruntime
+    python3 pytorch2onnx.py
+    python3 mnist_onnx.py
+
+    the results:
+	[array([[8.0073503e-04, 2.8827257e-04, 1.9504252e-04, 1.3457091e-01,
+        8.6817268e-04, 7.8707945e-01, 1.2973312e-03, 2.9687810e-04,
+        1.4535046e-02, 6.0068104e-02]], dtype=float32)]
+
 
 
 
