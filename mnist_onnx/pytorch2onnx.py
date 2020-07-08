@@ -36,6 +36,11 @@ model.eval()
 
 x = torch.randn(batch_size,*input_shape)		# 生成张量
 export_onnx_file = "mnist.onnx"					# 目的ONNX文件名
+
+
+dynamic_axes = {'input': {0: 'batch_size', 1: 'channel', 2: "height", 3: 'width'},  # variable lenght axes
+                'output': {0: 'batch_size', 1: 'channel', 2: "height", 3: 'width'}}
+
 torch.onnx.export(model,
                     x,
                     export_onnx_file,
@@ -43,5 +48,6 @@ torch.onnx.export(model,
                     do_constant_folding=True,	# 是否执行常量折叠优化
                     input_names=["input"],		# 输入名
                     output_names=["output"],	# 输出名
-                    dynamic_axes={"input":{0:"batch_size"},		# 批处理变量
-                                    "output":{0:"batch_size"}})
+                    dynamic_axes= dynamic_axes)
+                    #dynamic_axes={"input":{0:"batch_size"},		# 批处理变量
+                    #                "output":{0:"batch_size"}})
