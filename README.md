@@ -277,6 +277,9 @@ tested on tensorflow1.13,should build tensorflow from source [offical install](h
         1.4535046e-02, 6.0068104e-02]], dtype=float32)]
 
 
+# 四边形检测test_rect
+    python3 server.py
+![](test_rect/result.png)
 
 
 # reference
