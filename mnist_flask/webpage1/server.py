@@ -1,9 +1,11 @@
 import flask
+from flask import render_template
 import os,sys
 import io
 from PIL import Image
+import cv2
 
-sys.path.append("../train_test_mnist/")
+sys.path.append("../../train_test_mnist/")
 from test_mnist import MNIST
 import hashlib
 
@@ -67,6 +69,50 @@ def predict():
     t2 = time.time()
     log.info("TIME :{} s".format(t2-t1))
     return flask.jsonify(data)
+
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+
+@app.route('/webpage', methods=['POST', 'GET'])
+def upload():
+    if flask.request.method == 'POST':
+        img = flask.request.files['img'].read()
+        topk = flask.request.form['topk']
+        image = Image.open(io.BytesIO(img))
+
+
+        new_name = "./static/img/"+ time.strftime("%Y_%m_%d_%H_%M_%S", time.localtime()) + ".jpg"
+        data = predict_img(image, topk=int(topk))
+        image.save(new_name)
+        return flask.jsonify({"result":data,"img_path":new_name})
+    else:
+        new_name = None
+        result = []
+    return render_template('upload.html', img_path=new_name, result=result)
+
+
+
+def predict_img(img, topk=1):
+    data = dict()
+    start = time.time()
+    predict_result,predict_probability = mnist.interface(img)
+    result = [[int(predict_result[0]), predict_probability]]
+    #add test data
+    for i in range(1,topk):
+        result.append([0,0])
+    cost_time = time.time() - start
+    data['predictions'] = list()
+    for label, prob in result:
+        m_predict = {'label': label, 'probability': ("%.4f" % prob)}
+        data['predictions'].append(m_predict)
+    data['state'] = True
+    data['time'] = cost_time
+    return data
+
+
 
 if __name__ == "__main__":
     print(("* Loading tensorflow model and Flask starting server..."

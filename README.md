@@ -64,6 +64,15 @@ web api demos using tensorflow,include grpc,flask,webpy,tornado,rabbitMQ,django,
     python3 server.py
     python3 client.py
     sh curl.sh
+## webpage1
+![](mnist_flask/webpage1/static/img/webpage1.png)
+## webpage2
+![](mnist_flask/webpage2/static/results/webpage2.png)
+## webpage3
+![](mnist_flask/webpage3/logs/webpage3.png)
+
+
+
 
 # mnist_webpy
     python3 server.py

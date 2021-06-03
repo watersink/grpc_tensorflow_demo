@@ -33,5 +33,5 @@ class MNIST_CLIENT(object):
 
 if __name__=="__main__":
     mnist_client=MNIST_CLIENT()
-    image_name = '../train_test_mnist/MNIST/testimage/5/1.jpg'
+    image_name = '../../train_test_mnist/MNIST/testimage/5/1.jpg'
     mnist_client.post_ocr(image_name)

@@ -1,0 +1,218 @@
+2021-06-03 11:06:51,330	File "tf_logging.py",line 116	INFO: Restoring parameters from /Users/jxl/Desktop/grpc_tensorflow_demo/train_test_mnist/save/mnist.ckpt
+2021-06-03 11:06:51,745	File "_internal.py",line 113	INFO:  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2021-06-03 11:09:41,588	File "server.py",line 68	INFO: TIME :0.10560297966003418 s
+2021-06-03 11:09:41,589	File "_internal.py",line 113	INFO: 127.0.0.1 - - [03/Jun/2021 11:09:41] "[37mPOST /predict HTTP/1.1[0m" 200 -
+2021-06-03 11:28:56,274	File "tf_logging.py",line 116	INFO: Restoring parameters from /Users/jxl/Desktop/grpc_tensorflow_demo/train_test_mnist/save/mnist.ckpt
+2021-06-03 11:28:56,315	File "_internal.py",line 113	INFO:  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2021-06-03 11:29:16,855	File "app.py",line 1891	ERROR: Exception on /webpage [GET]
+Traceback (most recent call last):
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "server.py", line 80, in upload
+    if request.method == 'POST':
+NameError: name 'request' is not defined
+2021-06-03 11:29:16,861	File "_internal.py",line 113	INFO: 127.0.0.1 - - [03/Jun/2021 11:29:16] "[35m[1mGET /webpage HTTP/1.1[0m" 500 -
+2021-06-03 11:29:17,017	File "_internal.py",line 113	INFO: 127.0.0.1 - - [03/Jun/2021 11:29:17] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2021-06-03 11:30:01,469	File "tf_logging.py",line 116	INFO: Restoring parameters from /Users/jxl/Desktop/grpc_tensorflow_demo/train_test_mnist/save/mnist.ckpt
+2021-06-03 11:30:01,506	File "_internal.py",line 113	INFO:  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2021-06-03 11:30:05,105	File "app.py",line 1891	ERROR: Exception on /webpage [GET]
+Traceback (most recent call last):
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "server.py", line 96, in upload
+    return render_template('upload.html', img_path=new_name, result=result)
+UnboundLocalError: local variable 'new_name' referenced before assignment
+2021-06-03 11:30:05,110	File "_internal.py",line 113	INFO: 127.0.0.1 - - [03/Jun/2021 11:30:05] "[35m[1mGET /webpage HTTP/1.1[0m" 500 -
+2021-06-03 11:30:49,823	File "tf_logging.py",line 116	INFO: Restoring parameters from /Users/jxl/Desktop/grpc_tensorflow_demo/train_test_mnist/save/mnist.ckpt
+2021-06-03 11:30:49,856	File "_internal.py",line 113	INFO:  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2021-06-03 11:30:51,948	File "_internal.py",line 113	INFO: 127.0.0.1 - - [03/Jun/2021 11:30:51] "[37mGET /webpage HTTP/1.1[0m" 200 -
+2021-06-03 11:30:52,017	File "_internal.py",line 113	INFO: 127.0.0.1 - - [03/Jun/2021 11:30:52] "[37mGET /static/js/jquery-3.3.1.js HTTP/1.1[0m" 200 -
+2021-06-03 11:30:52,018	File "_internal.py",line 113	INFO: 127.0.0.1 - - [03/Jun/2021 11:30:52] "[37mGET /static/js/vue.js HTTP/1.1[0m" 200 -
+2021-06-03 11:31:26,012	File "_internal.py",line 113	INFO: 127.0.0.1 - - [03/Jun/2021 11:31:26] "[33mPOST /demo HTTP/1.1[0m" 404 -
+2021-06-03 11:32:26,268	File "tf_logging.py",line 116	INFO: Restoring parameters from /Users/jxl/Desktop/grpc_tensorflow_demo/train_test_mnist/save/mnist.ckpt
+2021-06-03 11:32:26,328	File "_internal.py",line 113	INFO:  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2021-06-03 11:32:29,040	File "_internal.py",line 113	INFO: 127.0.0.1 - - [03/Jun/2021 11:32:29] "[37mGET /webpage HTTP/1.1[0m" 200 -
+2021-06-03 11:32:32,233	File "app.py",line 1891	ERROR: Exception on /webpage [POST]
+Traceback (most recent call last):
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "server.py", line 89, in upload
+    data = predict_img(image, topk=int(topk))
+  File "server.py", line 103, in predict_img
+    result = model.predict(img, is_numpy=is_numpy, topk=int(topk))
+NameError: name 'model' is not defined
+2021-06-03 11:32:32,238	File "_internal.py",line 113	INFO: 127.0.0.1 - - [03/Jun/2021 11:32:32] "[35m[1mPOST /webpage HTTP/1.1[0m" 500 -
+2021-06-03 11:35:34,536	File "tf_logging.py",line 116	INFO: Restoring parameters from /Users/jxl/Desktop/grpc_tensorflow_demo/train_test_mnist/save/mnist.ckpt
+2021-06-03 11:35:34,569	File "_internal.py",line 113	INFO:  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2021-06-03 11:35:36,385	File "_internal.py",line 113	INFO: 127.0.0.1 - - [03/Jun/2021 11:35:36] "[37mGET /webpage HTTP/1.1[0m" 200 -
+2021-06-03 11:35:39,445	File "app.py",line 1891	ERROR: Exception on /webpage [POST]
+Traceback (most recent call last):
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "server.py", line 89, in upload
+    data = predict_img(image, topk=int(topk))
+  File "server.py", line 106, in predict_img
+    for label, prob in result:
+ValueError: not enough values to unpack (expected 2, got 1)
+2021-06-03 11:35:39,449	File "_internal.py",line 113	INFO: 127.0.0.1 - - [03/Jun/2021 11:35:39] "[35m[1mPOST /webpage HTTP/1.1[0m" 500 -
+2021-06-03 11:36:24,269	File "tf_logging.py",line 116	INFO: Restoring parameters from /Users/jxl/Desktop/grpc_tensorflow_demo/train_test_mnist/save/mnist.ckpt
+2021-06-03 11:36:24,313	File "_internal.py",line 113	INFO:  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2021-06-03 11:36:27,036	File "_internal.py",line 113	INFO: 127.0.0.1 - - [03/Jun/2021 11:36:27] "[37mGET /webpage HTTP/1.1[0m" 200 -
+2021-06-03 11:36:29,748	File "app.py",line 1891	ERROR: Exception on /webpage [POST]
+Traceback (most recent call last):
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "server.py", line 89, in upload
+    data = predict_img(image, topk=int(topk))
+  File "server.py", line 107, in predict_img
+    for label, prob in result:
+ValueError: not enough values to unpack (expected 2, got 1)
+2021-06-03 11:36:29,752	File "_internal.py",line 113	INFO: 127.0.0.1 - - [03/Jun/2021 11:36:29] "[35m[1mPOST /webpage HTTP/1.1[0m" 500 -
+2021-06-03 11:39:47,608	File "tf_logging.py",line 116	INFO: Restoring parameters from /Users/jxl/Desktop/grpc_tensorflow_demo/train_test_mnist/save/mnist.ckpt
+2021-06-03 11:39:47,849	File "_internal.py",line 113	INFO:  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2021-06-03 11:39:51,025	File "_internal.py",line 113	INFO: 127.0.0.1 - - [03/Jun/2021 11:39:51] "[37mGET /webpage HTTP/1.1[0m" 200 -
+2021-06-03 11:39:54,085	File "app.py",line 1891	ERROR: Exception on /webpage [POST]
+Traceback (most recent call last):
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "server.py", line 91, in upload
+    cv2.imwrite(new_name, image)
+NameError: name 'cv2' is not defined
+2021-06-03 11:39:54,087	File "_internal.py",line 113	INFO: 127.0.0.1 - - [03/Jun/2021 11:39:54] "[35m[1mPOST /webpage HTTP/1.1[0m" 500 -
+2021-06-03 11:40:14,718	File "tf_logging.py",line 116	INFO: Restoring parameters from /Users/jxl/Desktop/grpc_tensorflow_demo/train_test_mnist/save/mnist.ckpt
+2021-06-03 11:40:14,742	File "_internal.py",line 113	INFO:  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2021-06-03 11:40:24,596	File "app.py",line 1891	ERROR: Exception on /webpage [POST]
+Traceback (most recent call last):
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "server.py", line 92, in upload
+    cv2.imwrite(new_name, image)
+TypeError: Expected Ptr<cv::UMat> for argument 'img'
+2021-06-03 11:40:24,598	File "_internal.py",line 113	INFO: 127.0.0.1 - - [03/Jun/2021 11:40:24] "[35m[1mPOST /webpage HTTP/1.1[0m" 500 -
+2021-06-03 11:42:27,974	File "tf_logging.py",line 116	INFO: Restoring parameters from /Users/jxl/Desktop/grpc_tensorflow_demo/train_test_mnist/save/mnist.ckpt
+2021-06-03 11:42:28,012	File "_internal.py",line 113	INFO:  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2021-06-03 11:42:31,974	File "_internal.py",line 113	INFO: 127.0.0.1 - - [03/Jun/2021 11:42:31] "[37mGET /webpage HTTP/1.1[0m" 200 -
+2021-06-03 11:42:34,571	File "app.py",line 1891	ERROR: Exception on /webpage [POST]
+Traceback (most recent call last):
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "server.py", line 93, in upload
+    return flask.jsonify({"result":data,"img_path":new_name})
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/json/__init__.py", line 370, in jsonify
+    dumps(data, indent=indent, separators=separators) + "\n",
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/json/__init__.py", line 211, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/Users/jxl/anaconda3/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/Users/jxl/anaconda3/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/jxl/anaconda3/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/jxl/anaconda3/lib/python3.6/site-packages/flask/json/__init__.py", line 100, in default
+    return _json.JSONEncoder.default(self, o)
+  File "/Users/jxl/anaconda3/lib/python3.6/json/encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'int64' is not JSON serializable
+2021-06-03 11:42:34,576	File "_internal.py",line 113	INFO: 127.0.0.1 - - [03/Jun/2021 11:42:34] "[35m[1mPOST /webpage HTTP/1.1[0m" 500 -
+2021-06-03 11:43:28,159	File "tf_logging.py",line 116	INFO: Restoring parameters from /Users/jxl/Desktop/grpc_tensorflow_demo/train_test_mnist/save/mnist.ckpt
+2021-06-03 11:43:28,191	File "_internal.py",line 113	INFO:  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2021-06-03 11:43:39,449	File "_internal.py",line 113	INFO: 127.0.0.1 - - [03/Jun/2021 11:43:39] "[37mGET /webpage HTTP/1.1[0m" 200 -
+2021-06-03 11:43:41,973	File "_internal.py",line 113	INFO: 127.0.0.1 - - [03/Jun/2021 11:43:41] "[37mPOST /webpage HTTP/1.1[0m" 200 -
+2021-06-03 11:43:41,981	File "_internal.py",line 113	INFO: 127.0.0.1 - - [03/Jun/2021 11:43:41] "[33mGET /2021_06_03_11_43_41.jpg HTTP/1.1[0m" 404 -
+2021-06-03 11:55:33,401	File "_internal.py",line 113	INFO: 127.0.0.1 - - [03/Jun/2021 11:55:33] "[37mPOST /webpage HTTP/1.1[0m" 200 -
+2021-06-03 11:55:33,410	File "_internal.py",line 113	INFO: 127.0.0.1 - - [03/Jun/2021 11:55:33] "[33mGET /2021_06_03_11_55_33.jpg HTTP/1.1[0m" 404 -
+2021-06-03 11:59:56,091	File "tf_logging.py",line 116	INFO: Restoring parameters from /Users/jxl/Desktop/grpc_tensorflow_demo/train_test_mnist/save/mnist.ckpt
+2021-06-03 11:59:56,389	File "_internal.py",line 113	INFO:  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2021-06-03 12:00:03,639	File "_internal.py",line 113	INFO: 127.0.0.1 - - [03/Jun/2021 12:00:03] "[37mPOST /webpage HTTP/1.1[0m" 200 -
+2021-06-03 12:00:03,647	File "_internal.py",line 113	INFO: 127.0.0.1 - - [03/Jun/2021 12:00:03] "[37mGET /static/img/2021_06_03_12_00_03.jpg HTTP/1.1[0m" 200 -
+2021-06-03 12:01:17,021	File "_internal.py",line 113	INFO: 127.0.0.1 - - [03/Jun/2021 12:01:17] "[37mPOST /webpage HTTP/1.1[0m" 200 -
+2021-06-03 12:01:17,028	File "_internal.py",line 113	INFO: 127.0.0.1 - - [03/Jun/2021 12:01:17] "[37mGET /static/img/2021_06_03_12_01_17.jpg HTTP/1.1[0m" 200 -
+2021-06-03 12:01:52,114	File "_internal.py",line 113	INFO: 127.0.0.1 - - [03/Jun/2021 12:01:52] "[37mPOST /webpage HTTP/1.1[0m" 200 -
+2021-06-03 12:01:52,121	File "_internal.py",line 113	INFO: 127.0.0.1 - - [03/Jun/2021 12:01:52] "[37mGET /static/img/2021_06_03_12_01_52.jpg HTTP/1.1[0m" 200 -
+2021-06-03 12:05:30,649	File "tf_logging.py",line 116	INFO: Restoring parameters from /Users/jxl/Desktop/grpc_tensorflow_demo/train_test_mnist/save/mnist.ckpt
+2021-06-03 12:05:30,908	File "_internal.py",line 113	INFO:  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2021-06-03 12:05:42,233	File "server.py",line 70	INFO: TIME :0.06902313232421875 s
+2021-06-03 12:05:42,234	File "_internal.py",line 113	INFO: 127.0.0.1 - - [03/Jun/2021 12:05:42] "[37mPOST /predict HTTP/1.1[0m" 200 -
+2021-06-03 12:05:48,531	File "_internal.py",line 113	INFO: 127.0.0.1 - - [03/Jun/2021 12:05:48] "[37mGET /webpage HTTP/1.1[0m" 200 -
+2021-06-03 12:05:52,844	File "_internal.py",line 113	INFO: 127.0.0.1 - - [03/Jun/2021 12:05:52] "[37mPOST /webpage HTTP/1.1[0m" 200 -
+2021-06-03 12:05:52,853	File "_internal.py",line 113	INFO: 127.0.0.1 - - [03/Jun/2021 12:05:52] "[37mGET /static/img/2021_06_03_12_05_52.jpg HTTP/1.1[0m" 200 -

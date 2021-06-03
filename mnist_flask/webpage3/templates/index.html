@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
+
+        <title>图像结构化识别</title>
+        <!-- <link href="./cssAndJS/base.css" rel="stylesheet"> -->
+<!-- 
+         <link rel="stylesheet" href="bootstrap/bootstrap.css">
+       <link rel="stylesheet" href="bootstrap/bootstrap-theme.css">
+       <script src="bootstrap/jquery-1.10.2.js"></script>
+       <script src="bootstrap/bootstrap.js"></script>
+ -->    
+        
+        <style type="text/css">
+
+          body{
+            font-family:"Roboto","Helvetica","Hiragino Sans GB","Microsoft YaHei","微软雅黑","STHeiti Light","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif,Arial;
+            color: #8f8f8f;
+          }
+
+          strong{
+            font-weight: bold;
+          }
+
+          span {
+            display: inline-block;
+          }
+
+          button{
+            outline: 0 none !important;
+          }
+
+
+          .myTopNav {
+            margin-top: 10;
+            margin-bottom: 10;  
+
+          }
+          .myTopNav p{
+            margin-left: 20px;
+            margin-bottom: 20px;
+            font-size: 30px;
+            color: #8f8f8f;
+          }
+
+          .myPane-default {
+            border-color: red;
+            margin-bottom: 20px;
+            margin-left: 20px;
+            padding-bottom: 10px;
+            margin-right: 20px;
+            border: 1px solid transparent
+            border-radius: 4px;
+            box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+            font-size: 16px;
+            line-height: 24px;
+            /*background-color: purple;*/
+            border: 1px solid #c0c0c0;
+          }
+
+          .myPanel-heading {
+            color: #333;
+            background-color: #f5f5f5;
+            border-color: #ddd;
+            padding: 10px 15px;
+            border-bottom: 1px solid transparent
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px
+            background-color:orange;
+          }
+
+          .chooseFileContainer{
+            border: 1px solid transparent;
+          }
+
+          .chooseFileBtn {
+            /*font-size: 20px;*/
+            cursor: pointer;
+            font-size: 1rem;
+          }
+
+          .myStartTestDiv {
+            margin-left: 0px;
+            font-size: 2.3rem;
+            /*background-color: orange;*/
+            margin-top: 5px;
+          }
+
+          .fileinput_button_span{
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+            cursor: pointer;
+            background-color: green;
+            border-radius: 5px;
+            padding: 5px 5px;
+            color: white;
+            font-size: 1rem;
+
+          }
+
+          .fileinput_button_span input{
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            opacity: 0;
+            -ms-filter:'alpha(opacity=0)';
+
+          }
+
+          .myInputDocNameLabel {
+            display: inline-block;
+            margin-bottom: 30px;
+            /*background-color: red;*/
+            position: absolute;
+            left: 90px;
+            top: 7px;
+
+          }
+          .myInputFileDiv {
+            /*background-color: orange;*/
+            position: relative;
+          }
+
+
+          .myRequestLeftDiv{
+            float: left;
+            /*background-color: orange;*/
+            border-top: 20px;
+          }
+
+          .myRequestRightDiv{
+            /*background-color: red;*/
+            display: inline-block;
+          }
+
+          .myRequestSpan{
+            margin-top: -10px;
+            font-weight: normal;
+            line-height: 20px;
+          }
+          .myTextarea{
+            border: solid 1px #ebecee;
+            border-style: solid;
+            outline: none;
+          }
+
+          .myCommitBtn {
+            outline: none;
+            width: 90px;
+            height: 30px;
+            background-color: green;
+            color: white;
+            border-radius: 5px;
+            font-size: 1.05rem;
+            left: 0px;
+            border: 0 solid #fff;
+          }
+
+          .mySecondPartDiv{
+            padding: 0px 10px 10px 3px;
+            margin: 20px 20px;
+            background-color: #f5f5f5;
+
+          }
+
+          .myTipTask_id {
+            margin-left: 0;
+            /*background-color: red;*/
+          }
+
+          .myShowSearchStatusDiv{
+            margin-right: 20px;
+            margin-top: 0px;
+            background-color: #f5f5f5;
+          }
+
+          .myShowSearchStatusDiv p{
+            display: inline-block;
+          }
+          .myShowSearchStatusDiv span{
+            font-weight: bold;
+          }
+           .recognizedText {
+            /*float: left;*/
+            display: inline-block;
+            border: 1px solid #c0c0c0;
+            padding: 15px;
+            margin-left: 15px;
+            width: 500px;
+        }
+
+        img {
+            float: left;
+            display: inline-block;
+        }
+        .myBottomDiv {
+            border: 1px solid #c0c0c0;
+            margin-left: 20px;
+            margin-right: 20px;
+            /*height: 500px;*/
+            position: relative;
+
+        }
+
+        .bottomJson {
+            margin-left: 20px;
+            margin-right: 20px;
+            white-space:normal;
+            /*background-color: green;*/
+            height: auto;
+            word-wrap:break-word;
+            word-break:break-all;
+            overflow: hidden;
+            padding: 10px 30px 10px 10px;
+
+
+        }
+        </style>
+
+
+        <script>
+          function commitBtnDidClick(){
+            // todo 点击了开始测试按钮
+            // alert('1111');
+            var div = document.getElementById('afterNetSuccessDiv');
+          }
+
+          function searchStatusBtnDidClick(){
+            // todo 点击了查询状态按钮的事件触发
+            var span1 = document.getElementById('myReserchNetStatusSpan');
+            span1.innerHTML = "haha";
+          }
+
+          function DownLoadBtnDidClick() {
+            // todo 点击了下载按钮
+            var elemIF = document.createElement("iframe");   
+             elemIF.src = http://down.360safe.com/360safe_cq.exe;  
+              elemIF.style.display = "none";   
+            document.body.appendChild(elemIF);
+          }
+          function download(){
+            var elemIF = document.createElement("iframe");   
+             elemIF.src = http://down.360safe.com/360safe_cq.exe;  
+              elemIF.style.display = "none";   
+            document.body.appendChild(elemIF);
+          }
+        </script>
+
+        <!-- jQuery代码 -->
+        <script>
+          $(function() {
+            $(".myChooseFileInput").change(function() {
+              // 取出选择后的文件名
+              var str = $(this).val();
+              var arr = str.split('\\');
+              var my = arr[arr.length - 1];
+
+              // 2.
+              $(".myInputDocNameLabel").html(my);
+            })
+          })
+
+        </script>
+</head>
+
+
+        <div class="myTopNav"> 
+             <p class="topGrayText"> MNIST DEMO<strong></strong> </p>
+        </div>
+
+        <div class="myPane-default">
+          <div class="myPanel-heading"> 
+            <label>请上传测试图片:</label>     
+          </div>
+          <br>
+
+          <form method="post" enctype="multipart/form-data" action="http://127.0.0.1:5000/webpage">
+    
+            <div class="myInputFileDiv">
+              <span class="fileinput_button_span">
+              <span>选择图片</span>
+              <input type="file" name="file" class="myChooseFileInput">
+            </span>
+
+            <label class="myInputDocNameLabel"> 未选择文件 </label>
+            </div>
+            
+
+            <div >
+              <div class="myRequestLeftDiv">
+                <span class="myRequestSpan"> <p class="myRequest_param">请输入请求参数:  </p> </span> 
+
+              </div>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+
+              <div class="myRequestRightDiv">
+                <span>
+               <!-- <input type="text" name="request_parm" size="40"> -->
+               <textarea class="myTextarea" name="text" rows="5" cols="50" wrap="virtual"></textarea>
+             </span>
+                
+              </div>
+              
+            </div>
+
+            <div class="myStartTestDiv">
+
+              <button type="submit" class="myCommitBtn" onclick="commitBtnDidClick()"> 开始测试 </button>
+              
+            </div>
+
+          </form>
+
+
+          
+
+          <div class="afterNetSuccessDiv">
+
+          </div>
+
+
+        </div>
+
+
+          <div class="myBottomDiv">
+				  <img src="data:;base64,{{ img_stream }}" height="500px" width="500px">
+
+         &nbsp;&nbsp;&nbsp;
+
+         <!-- <img src="http://pic.sc.chinaz.com/Files/pic/pic9/201808/bpic7965_s.jpg" height="500px" width="500px" hidden="true">  -->
+           <p class="recognizedText" id="show_json">{{ output_json }}
+		   </p>
+		   
+          </div>
+
+      
+          <script type="text/javascript">
+　        var text = document.getElementById('show_json').innerText; //获取json格式内容
+          var result = JSON.stringify(JSON.parse(text), null, 2);//将字符串转换成json对象
+          document.getElementById('show_json').innerText= result ;
+          </script>
+
+         
+
+
+
+<body>
+
+
+
+</body>
+</html>
