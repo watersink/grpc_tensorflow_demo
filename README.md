@@ -1,5 +1,5 @@
 # web api Demo
-web api demos using tensorflow,include grpc,flask,webpy,tornado,rabbitMQ,django,tf serving,tf cpp, tflite, ncnn ,mnn, openvino, movidius_ncs, libtorch , onnxruntime
+web api demos using tensorflow,include grpc,flask,webpy,tornado,rabbitMQ,django,tf serving,tf cpp, tflite, ncnn ,mnn, openvino, movidius_ncs, libtorch , onnxruntime, c++ crow http server, c++ libcurl client
 
 # install
     #grpc
@@ -44,6 +44,9 @@ web api demos using tensorflow,include grpc,flask,webpy,tornado,rabbitMQ,django,
     pip3 install onnxruntime
     #gpu
     pip3 install onnxruntime-gpu
+
+    #mnist_cpp_http
+    apt-get install libboost-all-dev
     
 
 # helloworld
@@ -284,6 +287,50 @@ tested on tensorflow1.13,should build tensorflow from source [offical install](h
 	[array([[8.0073503e-04, 2.8827257e-04, 1.9504252e-04, 1.3457091e-01,
         8.6817268e-04, 7.8707945e-01, 1.2973312e-03, 2.9687810e-04,
         1.4535046e-02, 6.0068104e-02]], dtype=float32)]
+
+
+
+# mnist_cpp_http
+    #mnist_crow_http_server
+    #bin test
+    cd mnist_cpp_http/mnist_crow_http_server/
+    mkdir build&&cmake ..&&make
+    ./mnist_bin
+
+    #server
+    cd mnist_cpp_http/mnist_crow_http_server/
+    mkdir build&&cmake ..&&make
+    ./mnist_server
+    
+    #client
+    cd mnist_cpp_http/mnist_crow_http_server/
+    python3 client.py
+
+    the results:
+    {'class': 4, 'out_image': 'iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAIAAAD9b0jDAAAEU0lEQVRIDY3BjU8SfxgA8Oc57lDO6BZmuTQTX5an1UZTwHODfNkCnVZ/rV5TfMvLlNgSN1GnrURN5gs3QPGO+z6/7TY2mN78fT4IDhAR6hERACAi3EFEUAPBASLCHUSEiFCPiKAeggNEhP+NiKAGggNEBABE5DgOEZkNaiAibyMi0zQtyyIisCE44DiO53mPx9PU1MRxXLlcLhaLhmGQDRHdbnezrVKp5HI5XdcrlQrYEBwIguDz+To7O9vb2xExm83+/v378vKyUqkAgMvl8vl8/f39fr//6upqa2srm80ahgE2BAcej+f169fRaFSWZV3XNzY2ksnkv3//DMPgOM7r9fb29gaDwadPn+7u7q6vrx8fH5umCTYEB16vNxgMfv78ube3N5PJqKqaSqUuLi4YYx6P59WrV6FQqK+vL5/Pa5qWTqfz+TxjDGwIDiRJUhTly5cvz58/1zRtbm5uf3+/XC4LgtDa2jo4OBgOh91u9+bmpqZp2WzWMAyoQnAgSZKiKNPT048ePVpYWEgkEqenpwDw5MmTd+/eRSKRjo6Ow8PDRCKxvb1dKBQYY1CF4ECSJEVR4vE4z/Nfv3799u3b1dWVKIo9PT0fPnwIBAKlUmllZUXTtNPTU9M0iQiqEBxIkqQoSiwW4zhOVVVN00ql0osXLxRFGRsba2lpSafTqqqm02ld1xljUAPBgSRJw8PDU1NTDQ0N8/Pza2trlUrl7du3sVgsGAwahrG6uqqq6s7OTqFQIBtUITh4/Pjx0NDQzMxMa2trKpX6/v07IobD4fHx8ZcvX56cnCwsLMzPz2cymWKxSDaoQnAgiuLAwMDk5GQgECgUCgcHBy6Xq7+/v7u72zCMra2tpaWlHz9+ZLPZcrkMAEQEVQgOBEFoa2sLh8ORSMTv9zc0NAiCwPO8ruuZTGZzc/PXr19HR0fFYpExRkRQA8EBx3FNTU1+v394eDgajcqyjIgHBwfJZDKVSu3v7+dyuZubG8YYEUE9BAeIyPN8S0vL4ODgx48fZVm+uLjQNG19ff3w8DCfz5umSTa4A8EBIrrd7o6OjkgkEo1GRVFMJpMrKyt7e3u6rluWRURgIyKoh+DA5XJJkhQIBOLxuCzLf//+nZub29jYOD8/tyyLiKCKiKAewn0Q0ePxdHZ2jo2NjY6ONjY2rq2tqaq6u7t7fX1NRFCPiKAGwn0EQXj27FkoFIrFYm/evMnlcqqqJhKJP3/+3N7ewn2ICKoQ7iOKoizLU1NTExMTzc3NmUxmdnZ2eXn56Ojo9vYWqogIEcFGRFCFcAcier3e9+/ff/r0KRQKWZb18+fPxcXFVCp1dnZmmiYRQQ1EBAAigiqEOxBRFMW+vr6RkZGuri5d19O2k5OTUqnEGIOHINxHEASfz9fW1ub1ekul0tnZ2eXlZblcZowRETwE4T6IyPO8IAgul8uyLNM0LcsiIgAgIngIgjNEJCJEhBpEBA/5D/W5QDtd4WO0AAAAAElFTkSuQmCC', 'score': 0.9900000095367432}
+
+
+
+
+    #mnist_libcurl_http_client
+    #server
+    cd mnist_flask/webpage1
+    python3 server.py
+
+
+    #client
+    cd mnist_cpp_http/mnist_libcurl_http_client/
+    mkdir build&&cmake ..&&make
+    ./fd
+
+    the results:
+        result:{
+            "predict_probability": "0.99738353", 
+            "predict_result": "4", 
+            "success": true
+        }
+
+
 
 
 # 四边形检测test_rect

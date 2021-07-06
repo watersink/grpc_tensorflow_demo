@@ -1,0 +1,3 @@
+/home/jiangxiaolong/grpc_tensorflow_demo/mnist_cpp_http/mnist_libcurl_http_client/build/CMakeFiles/edit_cache.dir
+/home/jiangxiaolong/grpc_tensorflow_demo/mnist_cpp_http/mnist_libcurl_http_client/build/CMakeFiles/rebuild_cache.dir
+/home/jiangxiaolong/grpc_tensorflow_demo/mnist_cpp_http/mnist_libcurl_http_client/build/CMakeFiles/fd.dir

@@ -1,0 +1,1 @@
+/bin/c++ -std=c++0x -Wno-deprecated -fopenmp -O3 -DNDEBUG CMakeFiles/fd.dir/FaceDetect.cpp.o CMakeFiles/fd.dir/CurlPost.cpp.o CMakeFiles/fd.dir/main.cpp.o -o fd  -Wl,-rpath,/home/jiangxiaolong/grpc_tensorflow_demo/mnist_cpp_http/mnist_libcurl_http_client/libs/curl ../libs/curl/libcurl.so.4 
