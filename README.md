@@ -314,7 +314,7 @@ tested on tensorflow1.13,should build tensorflow from source [offical install](h
 
     #mnist_libcurl_http_client
     #server
-    cd mnist_flask/webpage1
+    cd mnist_flask/webpage2
     python3 server.py
 
 
