@@ -26,7 +26,8 @@ image_name = "4.jpg"
 with open(image_name, 'rb') as f:
     image_base64_3 = base64.b64encode(f.read()).decode('utf-8')
 
-data = {"image_base64":image_base64_3,"md5":md5sum(image_name), "request_id":"007", "return_score":1}
+print(md5sum(image_name))
+data = {"image_base64":image_base64_3,"md5": md5sum(image_name), "request_id":"007", "return_score":"1"}
 
 r = requests.post(url_get, data=json.dumps(data)).json()
 #r = requests.post(url_get, json = data )

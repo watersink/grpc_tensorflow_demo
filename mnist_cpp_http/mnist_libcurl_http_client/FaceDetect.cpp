@@ -22,7 +22,6 @@ void FaceDetectApi::detect(const char *url, map<const char *, const char *> &par
     }
 
 
-    params.insert(map<const char *, const char *>::value_type("image", filePath.c_str()));
 
 
     CurlPost curlPost = CurlPost();

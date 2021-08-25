@@ -13,6 +13,7 @@
 #include <vector>
 #include <iostream>
 #include <json.hpp>
+#include <openssl/md5.h>
 #include "mnist.h"
 
 using json = nlohmann::json;
@@ -21,6 +22,27 @@ using namespace cv;
 
 
 int PORT = 5000;
+
+
+string get_md5(const string &str)
+{
+    MD5_CTX ctx;
+    unsigned char sumdata[MD5_DIGEST_LENGTH];
+    char tmp[33];
+    memset(tmp, 0x00, 33);
+
+    MD5_Init(&ctx);
+    MD5_Update(&ctx, str.data(), str.size());
+    MD5_Final(sumdata, &ctx);
+
+    for (int j = 0; j < MD5_DIGEST_LENGTH; j++) {
+        sprintf(&tmp[(j * 2)], "%02x", (int) sumdata[j]);
+    }
+
+    string md5 = string(tmp);
+    return md5;
+}
+
 
 
 std::string image_to_base64(cv::Mat img){
@@ -61,6 +83,8 @@ int main() {
 
 
                 std::string base64_image = args["image_base64"].s();
+                std::string img_data = base64_decode(base64_image);
+                std::string md5_value = get_md5(img_data);
 
 
 
@@ -97,25 +121,34 @@ int main() {
 
 
                 json json_result;
-                try {
-		    cv::Mat out_image;
-                    float score_pred;
-                    int class_pred;
-                    mnist->process(image, out_image, score_pred, class_pred);
-                    std::cout<<"score_pred:"<<score_pred<<" class_pred:"<<class_pred<<std::endl;
+		if (md5_value == md5){
+	            try {
+		        cv::Mat out_image;
+                        float score_pred;
+                        int class_pred;
+                        mnist->process(image, out_image, score_pred, class_pred);
+                        std::cout<<"score_pred:"<<score_pred<<" class_pred:"<<class_pred<<std::endl;
 
 
-                    json_result["out_image"] = image_to_base64(out_image);
-		    json_result["score"] = score_pred;
-		    json_result["class"] = class_pred;
+                        json_result["out_image"] = image_to_base64(out_image);
+		        json_result["score"] = score_pred;
+		        json_result["class"] = class_pred;
 
-                }
-                catch (std::exception &e) {
-                    std::cout << "exception caught: " << e.what() << '\n';
-                    json_result["errorCode"] = "-1";
-	            json_result["errorMsg"] = std::string(e.what());
+                    }
+                    catch (std::exception &e) {
+                        std::cout << "exception caught: " << e.what() << '\n';
+                        json_result["errorCode"] = "-1";
+	                json_result["errorMsg"] = std::string(e.what());
 
-                }
+                    }
+	
+		}
+	        else{
+                    std::cout << "md5 is wrong\n";
+                    json_result["errorCode"] = "-2";
+	            json_result["errorMsg"] = "md5 is wrong";
+		
+		}
 
 		std::string json_result_string = json_result.dump();
 

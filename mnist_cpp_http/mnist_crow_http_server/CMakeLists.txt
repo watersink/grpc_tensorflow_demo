@@ -38,7 +38,7 @@ include_directories(${OpenCV_INCLUDE_DIRS})
 
 add_executable(mnist_server server.cpp mnist.cpp mnist.h include/cpp-base64/base64.h include/cpp-base64/base64.cpp)
 target_link_libraries(mnist_server ${Boost_LIBRARIES} /usr/lib/ boost_thread boost_system)
-target_link_libraries(mnist_server ${CMAKE_THREAD_LIBS_INIT} ${OPENCV_LIBS} ${TORCH_LIBRARIES})
+target_link_libraries(mnist_server ${CMAKE_THREAD_LIBS_INIT} ${OPENCV_LIBS} ${TORCH_LIBRARIES} -lcrypto -lssl)
 
 
 add_executable(mnist_bin mnist.cpp mnist.h main.cpp)
