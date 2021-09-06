@@ -1,0 +1,22 @@
+name: "mnist_lenet"
+platform: "pytorch_libtorch"
+max_batch_size: 128
+input [
+    {
+      name: "input__0"
+      data_type: TYPE_FP32
+      format: FORMAT_NCHW
+      dims: [ 1, 28, 28 ]
+    }
+]
+output [
+    {
+      name: "output__0"
+      data_type: TYPE_FP32
+      dims: [ 10 ]
+    }
+]
+dynamic_batching {
+    preferred_batch_size: [ 8, 16, 32, 64, 128]
+    max_queue_delay_microseconds: 100
+}
