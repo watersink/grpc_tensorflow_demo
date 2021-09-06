@@ -1,5 +1,5 @@
 # web api Demo
-web api demos using tensorflow,include grpc,flask,webpy,tornado,rabbitMQ,django,tf serving,tf cpp, tflite, ncnn ,mnn, openvino, movidius_ncs, libtorch , onnxruntime, c++ crow http server, c++ libcurl client
+web api demos using tensorflow,include grpc,flask,webpy,tornado,rabbitMQ,django,tf serving,tf cpp, tflite, ncnn ,mnn, openvino, movidius_ncs, libtorch , onnxruntime, c++ crow http server, c++ libcurl client, triton_inference_server
 
 # install
     #grpc
@@ -48,6 +48,10 @@ web api demos using tensorflow,include grpc,flask,webpy,tornado,rabbitMQ,django,
     #mnist_cpp_http
     apt-get install libboost-all-dev
     
+    #mnist_triton_inference_server
+    pip3 install tensorrtserver-1.12.0-py3-none-linux_x86_64.whl
+    pip3 install tritongrpcclient-1.12.0-py3-none-linux_x86_64.whl
+
 
 # helloworld
     python3 -m grpc_tools.protoc -I ./ –-python_out=./ –-grpc_python_out=./ ./helloworld.proto
@@ -312,7 +316,7 @@ tested on tensorflow1.13,should build tensorflow from source [offical install](h
 
 
 
-    #mnist_libcurl_http_client
+    # mnist_libcurl_http_client
     #server
     cd mnist_flask/webpage2
     python3 server.py
@@ -330,7 +334,16 @@ tested on tensorflow1.13,should build tensorflow from source [offical install](h
             "success": true
         }
 
-
+# mnist_triton_inference_server
+     #转化模型
+     python3 convert2torchscript.py
+     #模型部署
+     docker pull nvcr.io/nvidia/tritonserver:20.03-py3
+     docker run --gpus '"device=7"' --name="jxl-tritonserver" -d --shm-size=1g --ulimit memlock=-1 --ulimit stack=67108864 -p8020:8000 -p8021:8001 -p8022:8002 -v /home/jiangxiaolong/triton-inference-server:/models  nvcr.io/nvidia/tritonserver:20.03-py3 trtserver --model-repository=/models
+     #模型测试
+     python3 triton_client.py
+     the results:
+     [[(4, -0.05619096755981445, ''), (8, -4.068029880523682, ''), (1, -4.242851734161377, ''), (9, -4.946555137634277, ''), (6, -4.998610019683838, ''), (7, -5.519482135772705, ''), (5, -5.806419372558594, ''), (2, -6.507933139801025, ''), (0, -7.803701400756836, ''), (3, -7.842188835144043, '')]]
 
 
 # 四边形检测test_rect
