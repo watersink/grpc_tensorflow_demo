@@ -179,12 +179,10 @@ def predict():
                 # classify the input image and then initialize the list
                 # of predictions to return to the client
                 if md5 == cal_md5sum:
-                    print("#####")
                     predict_result,predict_probability = mnist.interface(image)
                     data["predict_result"] = str(predict_result[0])
                     data["predict_probability"] = str(predict_probability)
 
-                    print("#####", predict_result,predict_probability)
                     # indicate that the request was a success
                     data["success"] = True
 

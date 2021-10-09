@@ -1,5 +1,5 @@
 # web api Demo
-web api demos using tensorflow,include grpc,flask,webpy,tornado,rabbitMQ,django,tf serving,tf cpp, tflite, ncnn ,mnn, openvino, movidius_ncs, libtorch , onnxruntime, c++ crow http server, c++ libcurl client, triton_inference_server
+web api demos using tensorflow,include grpc,flask,webpy,tornado,rabbitMQ,redis,celery,django,tf serving,tf cpp, tflite, ncnn ,mnn, openvino, movidius_ncs, libtorch , onnxruntime, c++ crow http server, c++ libcurl client, triton_inference_server
 
 # install
     #grpc
