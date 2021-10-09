@@ -10,6 +10,11 @@ web api demos using tensorflow,include grpc,flask,webpy,tornado,rabbitMQ,django,
     #flask
     pip3 install flask
     pip3 install gunicorn
+
+    #flask_asynchronous
+	pip3 install celery==4.4.7
+	pip3 install redis==3.5.3
+
     
     #webpy
     git clone https://github.com/webpy/webpy.git
@@ -79,6 +84,13 @@ web api demos using tensorflow,include grpc,flask,webpy,tornado,rabbitMQ,django,
 ![](mnist_flask/webpage3/logs/webpage3.png)
 
 
+
+# mnist_flask_asynchronous
+    redis-server &
+    celery worker -A app.celery --loglevel=info &
+    python3 server.py
+    python3 client.py
+    
 
 
 # mnist_webpy
